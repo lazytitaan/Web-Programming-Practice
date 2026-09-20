@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멀티미디어 태그</title>
+</head>
+<body>
+    <a href="index2.html">index2.html</a>
+
+    <h1>멀티미디어 태그</h1>
+
+    <h2>오디오 태그</h2>
+    <!--
+        src    음악 파일의 경로 지정
+        preload    음악을 재생하기 전에 데이터를 모두 불러올지 여부 지정
+        autoplay    음악의 자동 재생 여부 지정
+        loop    음악의 반복 여부 지정
+        controls    음악 재생 도구 출력 여부 지정
+    -->
+    <audio src="https://mdn.github.io/shared-assets/audio/t-rex-roar.mp3" controls></audio>
+    <br>
+    <audio src="https://mdn.github.io/shared-assets/audio/t-rex-roar.mp3" controls preload="auto" loop></audio>
+    <br>
+    <audio src="https://mdn.github.io/shared-assets/audio/t-rex-roar.mp3" controls preload="none" autoplay></audio>
+
+    <h2>비디오 태그</h2>
+    <!--
+        src    비디오 파일의 경로 지정
+        poster    비디오 준비 중일 때 표시할 이미지의 파일 경로 지정
+        preload    비디오를 재생하기 전에 데이터를 모두 불러올지 여부 지정
+        autoplay    비디오의 자동 재생 여부 지정
+        loop    비디오의 반복 재생 여부 지정
+        controls    비디오 재생 도구의 출력 여부 지정
+        width    비디오의 너비 지정
+        height    비디오의 높이 지정
+    -->
+    <video src="https://mdn.github.io/shared-assets/videos/flower.mp4" controls width="400" height="225"></video>
+    <br>
+    <video src="https://mdn.github.io/shared-assets/videos/flower.mp4"
+           poster="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png"
+           controls preload="none" loop autoplay width="320" height="180"></video>
+</body>
+</html>

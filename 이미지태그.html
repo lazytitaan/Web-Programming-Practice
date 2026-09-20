@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 태그</title>
+</head>
+<body>
+    <a href="index2.html">index2.html</a>
+
+    <h1>이미지 태그</h1>
+
+    <h2>단독 사용</h2>
+    <!-- img -->
+    <img src="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png">
+
+    <h2>속성</h2>
+    <!--
+        src    이미지의 경로 지정,url
+        alt     이미지가 없을 때 나오는 글자 지정
+        width    이미지의 너비 지정, 생략시 이미지 원본 크기 표시, 퍼센트의 기준은 원본 이미지가 아니고 브라우저의 크기임
+        height    이미지의 높이 지정, 생략시 이미지 원본 크기 표시
+        border    경계선 두께
+        title    툴팁(tooltip) 표시
+    -->
+    없는 경로 (alt) :
+    <img src="없는파일.png" alt="삼육대학교 인공지능융합학부 로고">
+    <br>
+    width="194" height="47" :
+    <img src="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png" alt="로고" width="194" height="47">
+    <br>
+    width="50%" :
+    <img src="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png" alt="로고" width="50%">
+    <br>
+    border, title :
+    <img src="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png" alt="로고" width="194" border="5" title="삼육대학교 인공지능융합학부">
+
+    <h2>웹 문서에 사용할 수 있는 이미지 파일 형식</h2>
+    <!--
+        GIF (Graphics Interchange Format)
+        JPG/JPEG (Joint Photographic Experts Group)
+        PNG (Portable Network Graphics)
+    -->
+    <table border="1">
+        <tr>
+            <td>GIF</td>
+            <td>Graphics Interchange Format</td>
+        </tr>
+        <tr>
+            <td>JPG/JPEG</td>
+            <td>Joint Photographic Experts Group</td>
+        </tr>
+        <tr>
+            <td>PNG</td>
+            <td>Portable Network Graphics</td>
+        </tr>
+    </table>
+
+    <h2>이미지 맵</h2>
+    <!--
+        하나의 이미지에 여러개의 링크
+        map    태그를 이용하여 map 생성
+        img 태그에 usemap 속성 설정
+    -->
+    <img src="https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png"
+         alt="로고" width="388" height="94" usemap="#logomap">
+    <map name="logomap">
+        <area shape="rect" coords="0,0,91,93" href="https://www.syu.ac.kr/aice/" target="_blank" alt="학부 홈페이지">
+        <area shape="rect" coords="113,0,387,93" href="https://www.syu.ac.kr/aice/department-introduction/introduction/" target="_blank" alt="학부 소개">
+    </map>
+</body>
+</html>
