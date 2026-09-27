@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 실습</title>
+    <style>
+        /* 전체 선택자 */
+        * { color: blue; }
+
+        /* 태그 선택자 */
+        p { background-color: yellow; }
+
+        /* 클래스 선택자 */
+        .c1 { border: 1px solid red; }
+
+        /* id 선택자 */
+        #n1 { background-color: aqua; }
+
+        /* 하위 선택자, 자식 선택자 */
+        ul li { color: brown; }
+        ol > li { color: green; }
+
+        /* 그룹 선택자 */
+        h2, h3 { color: black; }
+
+        .text {
+            font-family: "맑은 고딕", sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 링크 상태 */
+        a:link { color: black; text-decoration: none; }
+        a:visited { color: purple; }
+        a:hover { color: red; text-decoration: underline; }
+        a:active { background-color: lightgray; }
+    </style>
+</head>
+<body>
+    <a href="index2.html">index2.html</a>
+
+    <!-- 인라인 스타일 -->
+    <h1 style="color: red;">CSS 실습</h1>
+
+    <h2 class="c1">스타일 적용</h2>
+    <p>HTML은 내용과 구조, CSS는 디자인</p>
+    <p class="c1">같은 class를 사용하면 태그가 달라도 같이 선택됨</p>
+
+    <h2>목록 색상</h2>
+    <ul>
+        <li id="n1">HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+    <h3>글자 꾸미기</h3>
+    <p class="text">글자 크기, 굵기, 가운데 정렬</p>
+
+    <h3>div와 span</h3>
+    <div style="background-color: lightgray;">div 첫 번째</div>
+    <div style="background-color: lightgray;">div 두 번째</div>
+    <span style="background-color: yellow;">span 첫 번째</span>
+    <span style="background-color: aqua;">span 두 번째</span>
+
+    <h3>링크</h3>
+    <a href="https://www.syu.ac.kr/">삼육대학교</a>
+</body>
+</html>
