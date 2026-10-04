@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>시간표</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 2학기 시간표</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link href="시간표.css" rel="stylesheet">
+    <style>
+        /* 그룹 선택자 */
+        h1, h2 { text-align: left; }
 
+        /* 제목 색은 important로 고정 */
+        #title { color: #333333 !important; }
+
+        .day-off { color: #555555; font-weight: bold; }
+    </style>
+</head>
 <body>
 
-<h1>2026 2학기 시간표</h1>
-<h2>2023100954 김태호</h2>
+<div id="page">
+    <div id="top">
+        <span id="semester">2학기</span>
+        <h1 id="title" style="color: gray;">2026 2학기 시간표</h1>
+        <h2 style="color: #555555; margin-left: 8px;">2023100954 김태호</h2>
+    </div>
 
-<table border="1">
+    <div class="links">
+        <a href="index2.html" target="_blank">실습 목록</a>
+        <a href="https://www.syu.ac.kr/" target="_blank">학교 홈페이지</a>
+        <a href="https://lms.suwings.syu.ac.kr/" target="_blank">e-class</a>
+    </div>
+
+<table id="timetable">
 
     <thead>
         <tr>
@@ -30,19 +52,19 @@
 
             <td></td>
 
-            <td rowspan="3">
+            <td rowspan="3" class="web">
                 <b>웹프로그래밍</b><br>
                 최민석<br>
                 303호
             </td>
 
-            <td rowspan="2">
+            <td rowspan="2" class="history">
                 <b>역사와문화</b><br>
                 하양래<br>
                 323호
             </td>
 
-            <td rowspan="3">
+            <td rowspan="3" class="db">
                 <b>데이터베이스 설계</b><br>
                 최민석<br>
                 303호
@@ -66,7 +88,7 @@
         <tr>
             <th>오전 11시</th>
 
-            <td>
+            <td class="chapel">
                 <b>채플</b><br>
                 하양래<br>
                 대강당
@@ -84,7 +106,7 @@
 
             <td></td>
 
-            <td rowspan="3">
+            <td rowspan="3" class="ai">
                 <b>기계학습</b><br>
                 최승호<br>
                 308호
@@ -103,7 +125,7 @@
             <td></td>
             <td></td>
 
-            <td rowspan="3">
+            <td rowspan="3" class="oop">
                 <b>객체지향 프로그래밍</b><br>
                 강경수<br>
                 207호
@@ -127,7 +149,7 @@
         <tr>
             <th>오후 3시</th>
 
-            <td rowspan="3">
+            <td rowspan="3" class="physics">
                 <b>생활속 물리</b><br>
                 김익서<br>
                 323호
@@ -187,6 +209,16 @@
     </tbody>
 
 </table>
+
+    <div id="memo">
+        <p>시간표 메모</p>
+        <ul>
+            <li>화요일, 목요일은 오전 9시 수업</li>
+            <li>월요일 오후에는 생활속 물리</li>
+            <li class="day-off">금요일은 공강</li>
+        </ul>
+    </div>
+</div>
 
 </body>
 </html>

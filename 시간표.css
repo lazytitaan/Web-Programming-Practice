@@ -1,0 +1,145 @@
+/* 전체 선택자 */
+* {
+    font-family: "맑은 고딕", sans-serif;
+}
+
+body {
+    background-color: white;
+    color: #333333;
+    margin: 20px;
+}
+
+#page {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#top {
+    width: 900px;
+    height: 96px;
+    padding: 8px;
+    border: 1px solid #aaaaaa;
+    background-color: #fafafa;
+    background-image: url("https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 120px auto;
+    position: relative;
+}
+
+h1 {
+    font-family: "Noto Sans KR", "맑은 고딕", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    font-style: normal;
+    margin: 8px;
+}
+
+h2 {
+    font-size: 12pt;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+#semester {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    width: 0.8in;
+    padding: 3px;
+    border: 1px solid #bbbbbb;
+    background-color: rgb(240, 240, 240);
+    text-align: center;
+    font-size: 13px;
+}
+
+/* 자식 선택자, 인라인 블록 */
+.links > a {
+    display: inline-block;
+    margin: 8px 12px 10px 0;
+    padding: 2px;
+    font-size: 13px;
+}
+
+a:link { color: #444444; text-decoration: underline; }
+a:visited { color: #666666; }
+a:hover { color: black; background-color: #eeeeee; }
+a:active { background-color: #dddddd; }
+
+/* 표와 셀 */
+#timetable {
+    width: 900px;
+    margin-top: 3px;
+    border: 1px solid #888888;
+    border-collapse: collapse;
+    background-color: white;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #aaaaaa;
+    padding: 5px;
+    height: 30px;
+    font-size: 13px;
+}
+
+thead > tr > th {
+    background-color: rgb(230, 230, 230);
+    font-size: 14px;
+    height: 35px;
+}
+
+tbody th {
+    width: 100px;
+    background-color: #f5f5f5;
+    color: #555555;
+    font-size: 12px;
+}
+
+td {
+    width: 150px;
+}
+
+/* 과목명은 크게, 색은 해당 셀에서 상속 */
+td b {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.web, .db, .ai, .oop {
+    background-color: #edf3f6;
+    color: #33464f;
+}
+
+.history, .chapel, .physics {
+    background-color: #f2f2f2;
+}
+
+td:hover {
+    background-color: #f7f7f7;
+}
+
+#memo {
+    width: 450px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    padding: 0.2cm;
+    border: 0.3mm solid #bbbbbb;
+    background-color: #fafafa;
+    position: relative;
+    left: 3px;
+    top: 2px;
+    font-size: 13px;
+}
+
+#memo > p {
+    font-size: 14px;
+    font-style: italic;
+    padding: 4px;
+    margin: 3px;
+}
+
+/* 하위 선택자 */
+#memo ul li {
+    margin-bottom: 0.3em;
+}
