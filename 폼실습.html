@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5주차 실습</title>
+    <style>
+        .box {
+            width: 180px;
+            height: 80px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid red;
+            background-color: aliceblue;
+            display: inline-block;
+        }
+
+        #area {
+            position: relative;
+            height: 150px;
+        }
+
+        #r2 {
+            position: relative;
+            left: 20px;
+            top: 10px;
+        }
+
+        #r3 {
+            position: absolute;
+            left: 480px;
+            top: 0;
+            width: 200px;
+            background-image: url("https://www.syu.ac.kr/aice/wp-content/themes/syu-hakbu/images/logo/logo.png");
+            background-repeat: no-repeat;
+            background-position: center bottom;
+        }
+
+        form {
+            width: 360px;
+            padding: 15px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <a href="index2.html">index2.html</a>
+    <h1>5주차 실습</h1>
+
+    <h2>박스 모델</h2>
+    <div id="area">
+        <div class="box" id="r1">첫 번째 박스</div>
+        <div class="box" id="r2">상대 위치 이동</div>
+        <div class="box" id="r3">배경 이미지</div>
+    </div>
+
+    <h2>폼 입력</h2>
+    <!-- GET 전송 시 주소에 name과 value가 붙는지 확인 -->
+    <form name="practice" action="폼실습.html" method="get">
+        아이디 : <input type="text" name="t1" value="student" size="20" maxlength="12"><br>
+        비밀번호 : <input type="password" name="p1" size="20" maxlength="12"><br><br>
+
+        <input type="button" name="b1" value="버튼1">
+        <hr>
+
+        사용할 수 있는 언어<br>
+        <input type="checkbox" name="c1" value="C" checked> C
+        <input type="checkbox" name="c2" value="Python"> Python
+        <input type="checkbox" name="c3" value="JS"> JS
+        <br><br>
+
+        관심 있는 분야<br>
+        <!-- 같은 name을 사용하면 하나의 그룹 -->
+        <input type="radio" name="part" value="front" checked> Front
+        <input type="radio" name="part" value="back"> Back
+        <input type="radio" name="part" value="full"> Full
+        <br><br>
+
+        <input type="hidden" name="week" value="5">
+
+        <!-- 파일 업로드는 서버 연결 후 post와 multipart/form-data로 설정 -->
+        파일 선택 : <input type="file" name="file1"><br><br>
+
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>
