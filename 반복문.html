@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /*
+    let number = prompt('점수를 입력하세요');
+
+    if (number >= 90 ){
+        alert('A 입니다.');
+    }
+    else if (number >= 80 ){
+        alert('B 입니다.')
+    }
+    else if (number >= 70 ){
+        alert('C 입니다.')
+    }
+    else if (number >= 60 ){
+        alert('D 입니다.')
+    }
+    else if (number < 60 ){
+        alert('F 입니다.')
+    } 
+    */
+
+    /*
+    let number2 = prompt('점수를 입력하세요');
+
+    switch (parseInt(number2 / 10)) {
+        case 10:
+        case 9:
+            alert('A 입니다.');
+            break;
+        case 8:
+            alert('B 입니다.');
+            break;
+        case 7:
+            alert('C 입니다.');
+            break;
+        case 6:
+            alert('D 입니다.');
+            break;
+        default:
+            alert('F 입니다.');
+            break;
+    }
+    */
+   /*
+   let number3 = prompt('점수를 입력하세요');
+
+    switch (true){
+        case (number3 >=90):
+            alert('A 입니다.');
+            break;
+        case (number3 >80):
+            alert('B 입니다.');
+            break;
+    }
+    */
+
+   // document.write('테스트 입니다.<br> ' + '<' + 'p' + '>' + '<>;:2번째 줄') <p>태그를 분리해서 합쳐도 태그로 인식하네
+
+</script>
+<body>
+    <h1>JS 조건문</h1>
+    <!-- <script>
+        let num = prompt('횟수를 입력하세요');
+        let count = 1;
+        while(count <= num){
+            document.write(count + '<br>');
+            count ++;
+        }
+    </script>
+-->
+    <!-- <script>
+        let num = 1;
+        for ( count = 2; count <= 100; count ++){
+            num = num + count;
+        };
+        document.write(num);
+    </script> -->
+    <!-- <script>
+        let sum = 0;
+        let i = 0;
+        for(i = 0; i <=100 ; i ++){
+            if(i % 2 !=0)continue;
+            sum = i + sum
+        }
+        document.writhe(sum)
+    </script> -->
+    <h2>9 X 9 구구단</h2>
+    <script>
+        for (y = 1; y <= 9; y ++){
+            for ( x = 2; x <=9; x ++ ){
+                document.write(' <span style="color:red">|</span> ' + x +' X '+ y +' = '+ x*y)
+                if (x >=9){
+                    document.write(' <span style="color:red">|</span> ')
+                    document.write('<br>')
+                };
+                
+            }
+
+        }
+    </script>
+</body>
+</html>
