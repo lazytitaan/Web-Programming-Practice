@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹프로그래밍 6주차 실습</title>
+    <style>
+        #sel {color: red;}
+        .dark {background-color: black; color: white;}
+    </style>
+</head>
+<body>
+    <h1>웹프로그래밍 6주차 실습</h1>
+
+    <h2>1. 폼 입력과 전송</h2>
+
+    <!-- action은 전송할 주소, 생략하면 현재 페이지로 전송 -->
+    <form name="practice" action="웹프로그래밍_6주차_실습.html" method="get" onreset="document.getElementById('foodValue').textContent='pizza'">
+        아이디 : <input type="text" name="t1" value="student" required><br>
+        암호 : <input type="password" name="p1"><br>
+        <input type="button" name="b1" value="버튼1"><br>
+
+        <input type="checkbox" name="c1" value="C"> C<br>
+        <input type="checkbox" name="c2" value="Python"> Python<br>
+        <input type="checkbox" name="c3" value="JS"> JS<br>
+
+        <input type="radio" name="part" value="front" checked> Front<br>
+        <input type="radio" name="part" value="back"> Back<br>
+        <input type="radio" name="part" value="full"> Full<br>
+        <input type="hidden" name="week" value="6">
+        <hr>
+
+        파일 선택 : <input type="file" name="file1"><br><br>
+
+        좋아하는 음식 :
+        <select name="food" onchange="document.getElementById('foodValue').textContent=this.value">
+            <option value="pizza" selected>피자</option>
+            <option value="chicken">치킨</option>
+            <option value="noodle">국수</option>
+        </select>
+        <br>
+        선택한 value : <span id="foodValue">pizza</span><br><br>
+
+        사용할 수 있는 언어<br>
+        <select name="language" multiple size="3">
+            <option value="html" selected>HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+        </select><br><br>
+
+        하고 싶은 말<br>
+        <textarea name="memo" rows="5" cols="40" required>폼 실습 중입니다.</textarea><br>
+
+        <!-- GET으로 보내면 주소창에서 name=value 확인 -->
+        <input type="submit" value="GET 전송">
+        <input type="submit" value="POST 전송" formmethod="post">
+        <input type="reset" value="초기화">
+    </form>
+
+    <p>POST는 데이터를 처리할 서버가 필요하다. 정적 서버에서는 오류가 날 수 있다.</p>
+
+    <hr>
+    <h2>2. 자바스크립트 스타일 변경</h2>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li id="sel">js</li>
+    </ul>
+    <!-- 클릭하면 body에 dark 클래스를 적용 -->
+    <input type="button" value="dark" onclick="document.body.className='dark'">
+    <input type="button" value="원래대로" onclick="document.body.className=''">
+
+    <p>버튼을 누르면 배경색과 글자색이 바뀐다.</p>
+
+    <hr>
+    <h2>3. 자바스크립트 입력과 출력</h2>
+    <!-- 태그 안에 직접 작성하는 인라인 방식 -->
+    <input type="button" value="Hello world" onclick="alert('Hello world!')">
+
+    <script>
+        // 표현식과 변수 이름 연습
+        let studentName = 'student';
+        let result = 10 + 20 + 30 * 2;
+        document.write('<p>' + studentName + ' : ' + result + '</p>');
+    </script>
+
+    <script>
+        // 단순 팝업
+        alert('Hello, Javascript!!');
+
+        // 확인을 누르면 true, 취소를 누르면 false
+        let sel = confirm('Really?');
+
+        // 입력한 이름을 변수에 저장
+        let input = prompt('이름을 입력하세요.');
+
+        /* document 객체의 write 메소드로
+           태그와 문자열을 문서에 출력한다. */
+        document.write('<h3>JS의 입력과 출력</h3>');
+        document.write('확인 선택 : ' + sel + '<br>');
+        document.write('당신의 이름은 ' + input + '입니다.<br>');
+    </script>
+</body>
+</html>
