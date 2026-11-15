@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery 이벤트 처리</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                alert("링크 이동 불가");
+            });
+
+            $("p").hover(function () {
+                $(this).css("color", "red");
+            }, function () {
+                $(this).css("color", "black");
+            });
+
+            $("button").click(function () {
+                $("img").fadeToggle(1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery 이벤트 처리</h1>
+    <p><a href="https://www.syu.ac.kr/">삼육대학교</a></p>
+    <p>인공지능융합학부</p>
+    <p>인공지능융합학부</p>
+    <img src="https://www.syu.ac.kr/wp-content/uploads/2023/03/suya_.png" alt="삼육대학교 캐릭터" style="max-width: 100%; height: auto;">
+    <br>
+    <button type="button">클릭</button>
+</body>
+</html>
