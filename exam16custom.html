@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>계산기</title>
+    <style>
+        h1 { text-align: center; }
+        #calc { width: 220px; margin: 0 auto; }
+        .disp {
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 4px;
+            text-align: right;
+            font-size: 20px;
+        }
+        .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+        .keys input { height: 50px; }
+    </style>
+</head>
+<body>
+    <h1>계산기</h1>
+    <form id="calc" aria-label="계산기">
+        <input type="text" class="disp" id="disp1" aria-label="수식" readonly>
+        <input type="text" class="disp" id="disp2" aria-label="결과" readonly>
+        <div class="keys">
+            <input type="button" class="num" value="7">
+            <input type="button" class="num" value="8">
+            <input type="button" class="num" value="9">
+            <input type="button" class="op" value="+">
+            <input type="button" class="num" value="4">
+            <input type="button" class="num" value="5">
+            <input type="button" class="num" value="6">
+            <input type="button" class="op" value="-">
+            <input type="button" class="num" value="1">
+            <input type="button" class="num" value="2">
+            <input type="button" class="num" value="3">
+            <input type="button" class="op" value="*">
+            <input type="reset" id="clear" value="AC">
+            <input type="button" class="num" value="0">
+            <input type="submit" id="equals" value="=">
+            <input type="button" class="op" value="/">
+            <input type="button" value="(">
+            <input type="button" value=")">
+            <input type="button" value=".">
+            <input type="button" id="erase" value="⌫" aria-label="마지막 글자 지우기">
+        </div>
+    </form>
+    <script>
+        const calculator = document.querySelector("#calc");
+        const formulaDisplay = document.querySelector("#disp1");
+        const resultDisplay = document.querySelector("#disp2");
+        let formula = "";
+        let result = null;
+
+        function calculate(input) {
+            let position = 0;
+
+            function readExpression() {
+                let value = readProduct();
+                while (input[position] === "+" || input[position] === "-") {
+                    const operator = input[position++];
+                    const right = readProduct();
+                    value = operator === "+" ? value + right : value - right;
+                }
+                return value;
+            }
+
+            function readProduct() {
+                let value = readOperand();
+                while (input[position] === "*" || input[position] === "/") {
+                    const operator = input[position++];
+                    const right = readOperand();
+                    if (operator === "/" && right === 0) {
+                        throw new Error("0으로 나눌 수 없습니다");
+                    }
+                    value = operator === "*" ? value * right : value / right;
+                }
+                return value;
+            }
+
+            function readOperand() {
+                let sign = 1;
+                while (input[position] === "-") {
+                    sign = -sign;
+                    position++;
+                }
+
+                if (input[position] === "(") {
+                    position++;
+                    const value = readExpression();
+                    if (input[position] !== ")") {
+                        throw new Error("닫는 괄호를 확인하세요");
+                    }
+                    position++;
+                    return sign * value;
+                }
+
+                const number = /^(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?/.exec(input.slice(position));
+                if (!number) throw new Error("수식을 확인하세요");
+                position += number[0].length;
+                return sign * Number(number[0]);
+            }
+
+            const value = readExpression();
+            if (position !== input.length) throw new Error("수식을 확인하세요");
+            if (!Number.isFinite(value)) throw new Error("계산 범위를 초과했습니다");
+            return value;
+        }
+
+        function showFormula() {
+            formulaDisplay.value = formula;
+            resultDisplay.value = "";
+            result = null;
+        }
+
+        calculator.querySelector(".keys").addEventListener("click", function (event) {
+            const key = event.target;
+            if (key.type !== "button") return;
+
+            if (key.id === "erase") {
+                formula = formula.slice(0, -1);
+            } else {
+                if (result !== null) {
+                    formula = "+-*/".includes(key.value) ? String(result) : "";
+                }
+                formula += key.value;
+            }
+            showFormula();
+        });
+
+        calculator.addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (!formula) return;
+
+            try {
+                result = calculate(formula);
+                resultDisplay.value = String(result);
+            } catch (error) {
+                result = null;
+                resultDisplay.value = error.message;
+            }
+        });
+
+        calculator.addEventListener("reset", function () {
+            formula = "";
+            showFormula();
+        });
+    </script>
+</body>
+</html>
+

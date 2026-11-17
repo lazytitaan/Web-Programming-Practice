@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>계산기</title>
+    <style>
+        h1 { text-align: center; }
+        #calc { width: 220px; margin: 0 auto; }
+        .disp {
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 4px;
+            text-align: right;
+            font-size: 20px;
+        }
+        .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+        .keys input { height: 50px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>계산기</h1>
+    <form id="calc" aria-label="두 항 계산기">
+        <input type="text" class="disp" id="disp1" aria-label="수식" readonly>
+        <input type="text" class="disp" id="disp2" aria-label="입력 및 결과" readonly>
+        <div class="keys">
+            <input type="button" class="num" value="7">
+            <input type="button" class="num" value="8">
+            <input type="button" class="num" value="9">
+            <input type="button" class="op" value="+">
+            <input type="button" class="num" value="4">
+            <input type="button" class="num" value="5">
+            <input type="button" class="num" value="6">
+            <input type="button" class="op" value="-">
+            <input type="button" class="num" value="1">
+            <input type="button" class="num" value="2">
+            <input type="button" class="num" value="3">
+            <input type="button" class="op" value="*">
+            <input type="reset" id="clear" value="AC">
+            <input type="button" class="num" value="0">
+            <input type="submit" id="equals" value="=">
+            <input type="button" class="op" value="/">
+        </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            let left = "";
+            let operator = "";
+            let right = "";
+            let finished = false;
+            const expression = $("#disp1");
+            const display = $("#disp2");
+
+            function clear() {
+                left = "";
+                operator = "";
+                right = "";
+                finished = false;
+                expression.val("");
+                display.val("");
+            }
+
+            $(".num").click(function () {
+                if (finished) clear();
+                if (operator) {
+                    right += $(this).val();
+                } else {
+                    left += $(this).val();
+                }
+                display.val(left + operator + right);
+            });
+
+            $(".op").click(function () {
+                if (!left || right) return;
+                operator = $(this).val();
+                finished = false;
+                expression.val("");
+                display.val(left + operator);
+            });
+
+            $("#calc").on("submit", function (event) {
+                event.preventDefault();
+                if (!left || !operator || !right) return;
+                const a = Number(left);
+                const b = Number(right);
+                let result;
+
+                switch (operator) {
+                    case "+": result = a + b; break;
+                    case "-": result = a - b; break;
+                    case "*": result = a * b; break;
+                    case "/": result = b === 0 ? NaN : a / b; break;
+                }
+
+                expression.val(left + operator + right);
+                const valid = Number.isFinite(result);
+                display.val(valid ? String(result) : "계산할 수 없습니다");
+                left = valid ? String(result) : "";
+                operator = "";
+                right = "";
+                finished = true;
+            });
+
+            $("#calc").on("reset", clear);
+        });
+    </script>
+</body>
+</html>
