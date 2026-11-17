@@ -10,11 +10,23 @@ const server = http.createServer((req, res)=> {
 
     // res.write("hello node");
     // res.end();
-    res.setHeader('content-Type', 'text/html');
-    const readStream = fs.createReadStream(__dirname + "/index.html", "utf8");
-    readStream.pipe(res);
+    // res.setHeader('content-Type', 'text/html');
+    // const readStream = fs.createReadStream(__dirname + "/index.html", "utf8");
+    // readStream.pipe(res);
+    const {method, url} = req;
+    if (method == 'GET' && url == "/home"){
+        res.statusCode = 200;
+        res.end('HOME')
+    } else if (method == 'GET' && url == '/about'){
+        res.statusCode == 200;
+        res.end('ABOUT');
+    } else {
+        res.statusCode = 404;
+        res.end('not found');
+    }
+        
 });
 
-server.listen(3000, () => {
-    console.log(`$(PORT)번 포트에서 서버 실행 중`);
+server.listen(port, "0.0.0.0", () => {
+    console.log(`${port}번 포트에서 서버 실행 중`);
 });
